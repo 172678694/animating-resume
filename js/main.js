@@ -28,7 +28,7 @@ function writeMarkdown(markdown, fn) {
 }
 
 var css1 = `/* 
- * 面试官你好，我是XXX
+ * 面试官你好，我是杨琪匀
  * 只用文字作做我介绍太单调了
  * 我就用代码来介绍吧
  * 首先准备一些样式
@@ -37,6 +37,9 @@ var css1 = `/*
 *{
     transition: all 1s;
 }
+
+/* 字太小了，变大一点 */
+
 html{
     background: #eee;
     font-size:14px;
@@ -47,6 +50,7 @@ html{
 }
 
 /* 我需要一点代码高亮 */
+
 .token.selector{
     color: #690;
 }
@@ -58,11 +62,13 @@ html{
 }
 
 /* 加一个3D效果 */
+
 #code{
     transform:rotateX(360deg);
 }
 
 /* 加一个呼吸效果 */
+
 #code{
     animation:breath 1s infinite alternate-reverse;
 }
@@ -80,6 +86,7 @@ html{
 #paper>.content {
     display: block;
    }
+
 /* 于是我就可以在白纸上写字了，请看右边 */
 `
 var css2=`
@@ -98,9 +105,9 @@ var css3 = `
 `
 var md = `# 自我介绍
 
-我叫 XXX
-1990 年 1 月出生
-XXX 学校毕业
+我叫 杨琪匀
+1994 年 7 月出生
+毕业于 华南师范大学
 自学前端半年
 希望应聘前端开发岗位
 
@@ -109,15 +116,16 @@ XXX 学校毕业
 熟悉 JavaScript CSS
 
 # 项目介绍
-1. XXX 轮播
-2. XXX 简历
-3. XXX 画板
+1. 无缝轮播
+2. 手机画布
+3. 电子简历
+4. 导航网站
 
 # 联系方式
 
-- QQ xxxxxxxx
-- Email xxxxxxxx
-- 手机 xxxxxxx
+- QQ：172678694
+- Email：172678694@qq.com
+- 手机 156xxxxx
 
 # 联系方式
 
