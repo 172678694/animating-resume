@@ -11,7 +11,7 @@ function writeCode(preResult, code, fn) {
             window.clearInterval(id)
             fn && fn.call() //fn就是一个回调函数
         }
-    }, 40)
+    }, 30)
 }
 function writeMarkdown(markdown, fn) {
     let domCode = document.querySelector('#paper>.content')
@@ -24,7 +24,7 @@ function writeMarkdown(markdown, fn) {
             window.clearInterval(id)
             fn && fn.call() //fn就是一个回调函数
         }
-    }, 40)
+    }, 30)
 }
 
 var css1 = `/* 
@@ -38,11 +38,8 @@ var css1 = `/*
     transition: all 1s;
 }
 
-/* 字太小了，变大一点 */
-
 html{
     background: #eee;
-    font-size:14px;
 }
 #code{
     border:1px solid #aaa;
@@ -105,9 +102,9 @@ var css3 = `
 `
 var md = `# 自我介绍
 
-我叫 杨琪匀
-1994 年 7 月出生
-毕业于 华南师范大学
+我叫杨琪匀
+1994年7月出生
+毕业于华南师范大学
 自学前端半年
 希望应聘前端开发岗位
 
