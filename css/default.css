@@ -1,0 +1,50 @@
+body{margin:0;padding:0;}
+*{box-sizing: border-box;}
+.token.selector{
+    color: black;
+}
+.token.property{
+    color: black;
+}
+.token.punctuation{
+    color: black;
+}
+#code-wrapper{
+    display: flex;
+    height: 100vh;
+    padding: 10px;
+}
+#code{
+    width: 100%;
+    overflow: hidden;
+}
+#paper{
+    position: fixed;
+    width: 50%;height: 100%;
+    right: 0;
+    /* display: flex;
+    align-items: flex-start; */
+    background: #444;
+    padding: 16px;
+    
+}
+#paper>.content{
+    width: 100%;
+    height: 100%;
+    background: white;
+    overflow: auto;
+    padding-left: 30px;
+}
+#paper>.html-wrapper{
+    width: 100%;
+    height: 100%;
+    background: white;
+    overflow: auto;
+    padding-left: 30px;
+}
+
+
+@keyframes breath {
+    from {  box-shadow: 0 0 10px rgba(0,0,0,1) }
+    to   { box-shadow: 0 0 10px rgba(0,0,0,0.2) }
+  }
