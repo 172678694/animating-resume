@@ -3,29 +3,49 @@ function writeCode(preResult, code, fn) {
     let n = 0
     let id = setInterval(() => {
         n += 1
-        domCode.innerHTML = preResult + code.substring(0, n)
+        domCode.innerHTML = preResult + code.slice(0, n)
         domCode.innerHTML = Prism.highlight(domCode.innerHTML, Prism.languages.css);
-        styleTags.innerHTML = preResult + code.substring(0, n)
+        styleTags.innerHTML = preResult + code.slice(0, n)
         domCode.scrollTop = domCode.scrollHeight //解决代码看不见的问题
         if (n >= code.length) {
             window.clearInterval(id)
             fn && fn.call() //fn就是一个回调函数
         }
-    }, 30)
+    }, 10)
 }
 function writeMarkdown(markdown, fn) {
     let domCode = document.querySelector('#paper>.content')
     let n = 0
     let id = setInterval(() => {
         n += 1
-        domCode.innerHTML = markdown.substring(0, n)
+        domCode.innerHTML = markdown.slice(0, n)
         domCode.scrollTop = domCode.scrollHeight //解决代码看不见的问题
         if (n >= markdown.length) {
             window.clearInterval(id)
             fn && fn.call() //fn就是一个回调函数
         }
-    }, 30)
+    }, 10)
 }
+
+function createPaper(fn) {
+    let paper = document.createElement('div')
+    paper.id = 'paper'
+    let pre = document.createElement('pre')
+    pre.className = 'content'
+    document.body.appendChild(paper)
+    paper.appendChild(pre)
+    fn && fn.call()
+}
+
+function convertMdToHtml(fn) {
+    let div = document.createElement('div')
+    div.innerHTML = marked(md)
+    div.className='html-wrapper'
+    let markdownContainer = document.querySelector('#paper > .content')
+    markdownContainer.replaceWith(div)
+    fn && fn.call()
+}
+
 
 var css1 = `/* 
  * 面试官你好，我是杨琪匀
@@ -77,7 +97,7 @@ html{
 
 #code-wrapper{
     width:50%;left:0;
-    position:fixed;
+    position:absolute;
     height:100%
 }
 #paper>.content {
@@ -169,22 +189,4 @@ writeCode('', css1, () => {
     })
 })
 
-function createPaper(fn) {
-    let paper = document.createElement('div')
-    paper.id = 'paper'
-    let pre = document.createElement('pre')
-    pre.className = 'content'
-    document.body.appendChild(paper)
-    paper.appendChild(pre)
-    fn && fn.call()
-}
-
-function convertMdToHtml(fn) {
-    let div = document.createElement('div')
-    div.innerHTML = marked(md)
-    div.className='html-wrapper'
-    let markdownContainer = document.querySelector('#paper > .content')
-    markdownContainer.replaceWith(div)
-    fn && fn.call()
-}
 
